@@ -1,24 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TestScripts : MonoBehaviour
 {
 
-    [SerializeField]
-    Transform camera;
+    int cnt = 0;
+
+    private void Awake() {
+
+        Debug.Log($"{cnt++}. Awake 실행.");
+
+    }
+
+    private void OnEnable() {
+
+        Debug.Log($"{cnt++}. OnEnable 실행.");
+
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        Debug.Log($"{cnt++}. Start 실행.");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            Debug.Log("스페이스 눌림");
-        }
+
+        Debug.Log("Update 실행.");
+        cnt++;
+
+    }
+
+    private void OnDisable() {
+
+        Debug.Log($"{cnt++}. OnDisable 실행.");
+
+    }
+
+    private void OnDestroy() {
+
+        Debug.Log($"{cnt++}. OnDestroy 실행.");
+
     }
 }
